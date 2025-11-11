@@ -20,6 +20,7 @@
     "react": "19.2.0",
     "react-native": "0.82.1",
     "semantic-release": "24.2.0",
+    "shx": "0.4.0",
     "typescript": "5.9.3"
   },
   "keywords": [
@@ -67,7 +68,8 @@
     "type-check": "tsc -noEmit",
     "build:plugin": "tsc --build plugin",
     "lint:plugin": "eslint plugin/src/*",
-    "test-coverage": "echo test coverage here"
+    "test-coverage": "echo test coverage here",
+    "clean": "shx rm -Rf dist"
   },
   "dependencies": {
     "invariant": "2.2.4"
