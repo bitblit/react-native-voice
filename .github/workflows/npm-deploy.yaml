@@ -1,0 +1,59 @@
+name: Build and Deploy Library To NPMJS
+
+on:
+  push:
+    tags:
+      - "release-*"
+      - "alpha-*"
+
+
+env:
+  NODE_OPTIONS: --max_old_space_size=8192
+
+jobs:
+  build-and-deploy-library-to-npmjs:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write  # Required for OIDC
+      contents: read
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure environment
+        uses: ./.github/workflows/actions/build-env-setup
+
+      - name: Clean
+        run: yarn clean
+        shell: bash
+
+      - name: Build
+        run: yarn build
+        shell: bash
+
+      - name: Test
+        run: yarn test-coverage
+        shell: bash
+
+      - uses: ./.github/workflows/actions/upload-code-coverage
+        with:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Apply Github Info
+        run: yarn apply-github-info
+        shell: bash
+
+      - name: Set Codependency versions
+        run: yarn set-codependencies-by-github-tag
+        shell: bash
+
+      # Note to self - if you have created a new module and this step is failing, you probably need to go into
+      # npmjs.com and setup Github actions as a trusted publisher
+      - name: Deploy to NPMJS
+        run: yarn publish
+        shell: bash

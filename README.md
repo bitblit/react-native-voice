@@ -90,7 +90,7 @@ public class MainActivity extends Activity implements ReactApplication {
 
 ### Manually Link iOS
 
-- Drag the Voice.xcodeproj from the @react-native-voice/voice/ios folder to the Libraries group on Xcode in your poject. [Manual linking](https://reactnative.dev/docs/linking-libraries-ios.html)
+- Drag the Voice.xcodeproj from the @bitblit/react-native-voice/ios folder to the Libraries group on Xcode in your poject. [Manual linking](https://reactnative.dev/docs/linking-libraries-ios.html)
 
 - Click on your main project file (the one that represents the .xcodeproj) select Build Phases and drag the static library, lib.Voice.a, from the Libraries/Voice.xcodeproj/Products folder to Link Binary With Libraries
 

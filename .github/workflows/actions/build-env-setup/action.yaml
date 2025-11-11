@@ -1,0 +1,42 @@
+name: 'Node Setup'
+description: 'Initial setup for node'
+
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/workflows/actions/commit-comment-flags
+    - uses: ./.github/workflows/actions/job-setup
+    
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        cache: "yarn"
+        node-version: 20
+        registry-url: https://registry.npmjs.org
+
+    - name: Output old npm version
+      shell: bash
+      run: npm -version
+
+    # Ensure npm 11.5.1 or later is installed
+    - name: Update npm
+      shell: bash
+      run: npm install -g npm@latest
+
+    - name: Output new npm version
+      shell: bash
+      run: npm -version
+
+    - name: Output yarn version
+      shell: bash
+      run: yarn -v
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: "temurin"
+        java-version: "11"
+
+    - name: Yarn install
+      run: yarn install
+      shell: bash
