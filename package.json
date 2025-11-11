@@ -1,7 +1,7 @@
 {
   "name": "@bitblit/ratchet-react-native-voice",
   "description": "React Native Native Voice library for iOS and Android updated for AndroidX",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": [
     "Sam Wenke <samwenke@gmail.com>",
     "Chris Weiss <bitblit@gmail.com>"

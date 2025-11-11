@@ -9,11 +9,11 @@
             alt="chat on Discord"></a>
 
 ```sh
-yarn add @react-native-voice/voice
+yarn add @bitblit/ratchet-react-native-voice
 
 # or
 
-npm i @react-native-voice/voice --save
+npm i @bitblit/ratchet-react-native-voice --save
 ```
 
 Link the iOS package
@@ -42,7 +42,7 @@ npx pod-install
 <p align="center">Manually or automatically link the NativeModule</p>
 
 ```sh
-react-native link @react-native-voice/voice
+react-native link @bitblit/ratchet-react-native-voice
 ```
 
 ### Manually Link Android
@@ -51,8 +51,8 @@ react-native link @react-native-voice/voice
 
 ```gradle
 ...
-include ':@react-native-voice_voice', ':app'
-project(':@react-native-voice_voice').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-voice/voice/android')
+include ':@bitblit_ratchet-react-native-voice', ':app'
+project(':@bitblit_ratchet-react-native-voice').projectDir = new File(rootProject.projectDir, '../node_modules/@bitblit/ratchet-react-native-voice/android')
 ```
 
 - In `android/app/build.gradle`
@@ -61,7 +61,7 @@ project(':@react-native-voice_voice').projectDir = new File(rootProject.projectD
 ...
 dependencies {
     ...
-    compile project(':@react-native-voice_voice')
+    compile project(':@bitblit_ratchet-react-native-voice')
 }
 ```
 
@@ -103,7 +103,7 @@ After installing this npm package, add the [config plugin](https://docs.expo.io/
 ```json
 {
   "expo": {
-    "plugins": ["@react-native-voice/voice"]
+    "plugins": ["@bitblit/ratchet-react-native-voice"]
   }
 }
 ```
@@ -123,7 +123,7 @@ The plugin provides props for extra customization. Every time you change the pro
 {
   "plugins": [
     [
-      "@react-native-voice/voice",
+      "@bitblit/ratchet-react-native-voice",
       {
         "microphonePermission": "CUSTOM: Allow $(PRODUCT_NAME) to access the microphone",
         "speechRecognitionPermission": "CUSTOM: Allow $(PRODUCT_NAME) to securely recognize user speech"
@@ -140,7 +140,7 @@ The plugin provides props for extra customization. Every time you change the pro
 ### Example
 
 ```javascript
-import Voice from '@react-native-voice/voice';
+import Voice from '@bitblit/ratchet-react-native-voice';
 import React, {Component} from 'react';
 
 class VoiceTest extends Component {
@@ -243,8 +243,8 @@ Need to include permissions for `NSMicrophoneUsageDescription` and `NSSpeechReco
 
 Please see the documentation provided by ReactNative for this: [PermissionsAndroid](https://reactnative.dev/docs/permissionsandroid.html)
 
-[npm]: https://img.shields.io/npm/v/@react-native-voice/voice.svg?style=flat-square
-[npm-url]: https://npmjs.com/package/@react-native-voice/voice
+[npm]: https://img.shields.io/npm/v/@bitblit/ratchet-react-native-voice.svg?style=flat-square
+[npm-url]: https://npmjs.com/package/@bitblit/ratchet-react-native-voice
 [circle-ci-badge]: https://img.shields.io/circleci/project/github/react-native-voice/voice/master.svg?style=flat-square
 
 <h2 align="center">Contributors</h2>
