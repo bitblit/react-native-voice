@@ -69,6 +69,7 @@
     "build:plugin": "tsc --build plugin",
     "lint:plugin": "eslint plugin/src/*",
     "test-coverage": "echo test coverage here",
+    "apply-github-info": "echo apply github here",
     "clean": "shx rm -Rf dist"
   },
   "dependencies": {
